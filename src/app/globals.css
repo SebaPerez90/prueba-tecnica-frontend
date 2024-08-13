@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+:root {
+  --bg-light: #fff;
+  --color-primary-light: #3c3c43;
+  --color-secondary-light: #3c3c43c7;
+  --color-tertiary-light: #777e87;
+  --box-light: #f3f3f3;
+  --border-light: #ccc;
+
+  --purple-strong: #3E54AC;
+  --purple-medium: #655DBB;
+  --purple-weak: #BFACE2;
+
+  --shadow-top: 0px -3px 15px 0px rgba(0, 0, 0, 0.3);
+  --shadow-neutral: 0px 0px 30px 0px rgba(0, 0, 0, 0.1);
+  --shadow-bottom: 0px 3px 15px 0px rgba(0, 0, 0, 0.3);
+}
+
+* {
+  transition: background-color 500ms;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  font: inherit;
+}
+
+html,
+body {
+  overflow-x: hidden;
+  font-size: calc(7.5px + 0.5vw);
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+}
