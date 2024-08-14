@@ -13,7 +13,7 @@ const page = () => {
         <Landing />
         <About />
       </main>
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 };
