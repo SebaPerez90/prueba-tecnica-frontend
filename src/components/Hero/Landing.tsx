@@ -5,7 +5,8 @@ const Landing = () => {
   return (
     <section
       id='hero-section'
-      className='flex items-center relative before:absolute before:left-[50%] before:bottom-[35%] before:w-32 before:h-32 before:rounded-full before:[background:radial-gradient(circle,#ffff,#655DBB)] before:-z-20 before:blur-2xl before:opacity-50 before:scale-[5] z-10'>
+      // relative before:absolute before:left-[50%] before:bottom-[35%] before:w-32 before:h-32 before:rounded-full before:[background:radial-gradient(circle,#ffff,#655DBB)] before:-z-20 before:blur-2xl before:opacity-90 before:scale-[5]
+      className='flex items-center z-10 py-8'>
       <div className='w-1/2 pl-16 flex flex-col items-start gap-10 z-10'>
         <div className='flex flex-col gap-4'>
           <h1 className='font-black text-base-font-300 text-7xl gradient-text'>
@@ -22,7 +23,7 @@ const Landing = () => {
         </div>
       </div>
       <div className='flex flex-col items-center w-1/2 z-10'>
-        <div className='w-[28em] h-auto mr-10'>
+        <div className='w-[28em] h-auto mr-10 xl:w-[32em]'>
           <Image
             width={500}
             height={500}

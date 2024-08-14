@@ -51,7 +51,7 @@ const Header = () => {
         />
         <span
           onClick={() => router.push('/')}
-          className='text-base-200 text-2xl font-bold'>
+          className='text-base-200 text-2xl font-bold cursor-pointer'>
           SwiftCart
         </span>
       </div>

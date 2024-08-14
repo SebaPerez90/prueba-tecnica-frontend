@@ -5,6 +5,7 @@
   "rules": {
     "semi": ["warn", "always"],
     "quotes": ["warn", "single"],
+    "no-unused-vars": ["warn", "always"],
     "@typescript-eslint/no-explicit-any": "warn",
     "@typescript-eslint/no-unused-vars": "warn"
   }
