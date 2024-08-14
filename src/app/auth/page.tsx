@@ -69,6 +69,7 @@ const Auth = () => {
         className='flex flex-col justify-around gap-12 w-[20em]'>
         <div className='input_field_container relative w-full bg-white dark:bg-dark-main'>
           <input
+            required={true}
             autoComplete='off'
             type='text'
             name='name'
@@ -87,6 +88,7 @@ const Auth = () => {
         </div>
         <div className='input_field_container relative w-full bg-white dark:bg-dark-main'>
           <input
+            required={true}
             autoComplete='off'
             type='number'
             name='phone'
@@ -105,6 +107,7 @@ const Auth = () => {
         </div>
         <div className='input_field_container relative w-full bg-white dark:bg-dark-main'>
           <input
+            required={true}
             autoComplete='off'
             type={hidePassword ? 'password' : 'text'}
             name='password'
