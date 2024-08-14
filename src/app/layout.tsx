@@ -1,10 +1,16 @@
 import type { Metadata } from 'next';
+import { Inter } from 'next/font/google';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'Prueba Técnica',
-  description: 'E-comerce Prueba Técnica',
+  title: 'SwiftCart',
+  description: 'Fake e-comerce - Prueba Técnica',
 };
+
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+});
 
 export default function RootLayout({
   children,
@@ -12,7 +18,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='en'>
+    <html
+      lang='en'
+      className={inter.className}>
       <body>{children}</body>
     </html>
   );
