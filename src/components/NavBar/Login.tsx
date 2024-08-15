@@ -52,19 +52,31 @@ const Login: React.FC<LoginProps> = ({ closeModal }) => {
     }
   };
 
-  const signUp = async (e: FormEvent<HTMLFormElement>) => {
+  const signIn = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    await fetch('aca va la url del backend "/signup"', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(formData),
-    });
+    await new Promise((resolve) => setTimeout(resolve, 1500));
+
+    try {
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_URL_BACKEND_DEV}/login`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+        }
+      );
+      // if (!response.ok) throw new Error('Error al iniciar sesión');
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      throw error;
+    }
   };
 
   const succesMessage = (e: any) => {
-    const myPromise = signUp(e);
+    const myPromise = signIn(e);
 
     toast.promise(
       myPromise,
@@ -125,7 +137,7 @@ const Login: React.FC<LoginProps> = ({ closeModal }) => {
         <form
           name='contact-form'
           method='POST'
-          onSubmit={signUp}
+          onSubmit={succesMessage}
           className='flex flex-col justify-around gap-9 w-[27em]'>
           <div className='relative w-full input_field_container_login'>
             <input
