@@ -27,7 +27,7 @@ const NavBar = () => {
   return (
     <nav
       id='nagevacion-links'
-      className='flex items-center gap-8'>
+      className='duration-300 flex items-center gap-8'>
       {links.map((links: INavLinks, index) => (
         <Link
           key={index}

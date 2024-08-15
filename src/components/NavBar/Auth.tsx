@@ -36,11 +36,6 @@ const Auth = () => {
     setIsOpen(!isOpen);
   };
 
-  // useEffect(() => {
-  //     modal.current?.classList.replace('hidden', 'flex');
-  //     setIsOpen(true);
-  // }, []);
-
   // const closeModal = () => {
   //   modal.current?.classList.add('[transition:all_400ms]');
   //   modal.current?.classList.add('[opacity:0!important]');
@@ -56,7 +51,7 @@ const Auth = () => {
     <>
       <div
         id='auth-btns'
-        className='flex items-center gap-4 bg'>
+        className='flex items-center gap-4 bg duration-300'>
         <button
           onClick={openModal}
           className='btn_secondary'>

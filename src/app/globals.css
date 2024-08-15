@@ -46,7 +46,7 @@ body {
   .title-steps::first-letter {
     color: #6c63ff;
     font-weight: 900;
-    font-size: 0.8em; 
+    font-size: 0.8em;
   }
 
   .social-network {
@@ -84,6 +84,16 @@ body {
     padding: 0.2em 0.5em;
     opacity: 1;
     background: inherit;
+    transition: all 200ms;
+    border: none;
+  }
+
+  .input_field_container_login input:focus ~ label,
+  .input_field_container_login input:valid ~ label {
+    transform: translateY(-2.7em) translateX(-35px) scale(0.9);
+    padding: 0.2em 0.5em;
+    opacity: 1;
+    color: #ffffff;
     transition: all 200ms;
     border: none;
   }
