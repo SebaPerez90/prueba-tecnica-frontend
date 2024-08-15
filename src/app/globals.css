@@ -4,15 +4,15 @@
 
 @layer components {
   .btn_primary {
-    @apply border px-8 py-3 rounded-xl bg-gradient-to-l to-base-300 from-base-200 text-white active:outline active:outline-1 active:outline-black active:scale-90 duration-200 relative before:absolute before:left-0 before:top-0 before:w-full before:h-full before:bg-base-100 before:opacity-0 before:-z-10 z-20 before:duration-200 overflow-hidden hover:before:opacity-40 hover:-translate-y-1 hover:shadow-xl active:translate-y-1 font-semibold;
+    @apply border px-8 py-4 rounded-xl bg-gradient-to-l to-base-300 from-base-200 text-white active:outline active:outline-1 active:outline-black active:scale-90 duration-200 relative before:absolute before:left-0 before:top-0 before:w-full before:h-full before:bg-base-100 before:opacity-0 before:-z-10 z-20 before:duration-200 overflow-hidden hover:before:opacity-40 hover:-translate-y-1 hover:shadow-xl active:translate-y-1 font-semibold;
   }
 
   .btn_secondary {
-    @apply border-2 border-base-borders font-semibold px-8 py-3 rounded-xl  text-base-font-200 active:outline active:outline-1 active:outline-black active:scale-90 duration-200 hover:text-base-200/80  z-20 before:duration-200 hover:-translate-y-1 hover:shadow-lg active:translate-y-1 hover:border-base-200/60;
+    @apply border-2 border-base-borders font-semibold px-8 py-4 rounded-xl  text-base-font-200 active:outline active:outline-1 active:outline-black active:scale-90 duration-200 hover:text-base-200/80  z-20 before:duration-200 hover:-translate-y-1 hover:shadow-lg active:translate-y-1 hover:border-base-200/60;
   }
 
-  .btn_disable {
-    @apply pointer-events-none border-zinc-700 bg-zinc-700  text-slate-300  px-8 rounded-xl font-semibold cursor-pointer border py-3 duration-200;
+  .btn_disabled {
+    @apply pointer-events-none border-zinc-700 bg-zinc-700  text-slate-300  px-8 rounded-xl font-semibold cursor-pointer border py-4 duration-200;
   }
 }
 

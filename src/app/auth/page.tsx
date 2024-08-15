@@ -19,20 +19,31 @@ const Auth = () => {
     email: '',
   });
   const [hidePassword, setHidePassword] = useState<boolean>(true);
-  const [wrongEmail, setWrongEmail] = useState<boolean>(false);
+  const [wrongEmail, setWrongEmail] = useState<boolean>(true);
   const send_btn = useRef<HTMLButtonElement | null>(null);
 
   const router = useRouter();
 
   useEffect(() => {
     // Disable the send button function until the fields are completed
-    if (wrongEmail === false && formData.password.length > 5) {
-      send_btn.current?.classList.replace(
-        'pointer-events-none',
-        'pointer-events-auto'
-      );
+    if (
+      wrongEmail === false &&
+      formData.password &&
+      formData.email &&
+      formData.name &&
+      formData.phone
+    ) {
+      send_btn.current?.classList.replace('btn_disabled', 'btn_primary');
+    } else if (wrongEmail === true) {
+      send_btn.current?.classList.replace('btn_primary', 'btn_disabled');
     }
-  }, [formData.password.length, wrongEmail]);
+  }, [
+    formData.email,
+    formData.name,
+    formData.password,
+    formData.phone,
+    wrongEmail,
+  ]);
 
   const captureValues = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -100,7 +111,7 @@ const Auth = () => {
           name='contact-form'
           method='POST'
           onSubmit={signUp}
-          className='flex flex-col justify-around gap-12 w-[33em] border shadow-bottom bg-white rounded-lg py-12 px-24'>
+          className='duration-300 flex flex-col justify-around gap-12 w-[33em] border shadow-bottom bg-white rounded-lg py-12 px-24'>
           <div className='input_field_container relative w-full bg-white'>
             <input
               required={true}
@@ -191,7 +202,7 @@ const Auth = () => {
             ref={send_btn}
             type='submit'
             onClick={succesMessage}
-            className='btn_primary pointer-events-none'>
+            className='w-[70%] m-[0_auto] text-lg btn_disabled duration-500'>
             Enviar
           </button>
         </form>

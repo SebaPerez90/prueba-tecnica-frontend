@@ -3,10 +3,10 @@ import { ChangeEvent, FormEvent, useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { LuEye } from 'react-icons/lu';
 import { LuEyeOff } from 'react-icons/lu';
-import { IoInformationCircle } from 'react-icons/io5';
 import Image from 'next/image';
 import logo from '@/assets/images/logo.png';
 import { motion } from 'framer-motion';
+import toast, { Toaster } from 'react-hot-toast';
 
 interface LoginProps {
   closeModal: () => void;
@@ -26,10 +26,10 @@ const Login: React.FC<LoginProps> = ({ closeModal }) => {
 
   useEffect(() => {
     // Disable the send button function until the fields are completed
-    console.log(wrongEmail);
-
     if (wrongEmail === false && formData.password) {
-      send_btn.current?.classList.replace('btn_disable', 'btn_primary');
+      send_btn.current?.classList.replace('btn_disabled', 'btn_primary');
+    } else if (wrongEmail === true) {
+      send_btn.current?.classList.replace('btn_primary', 'btn_disabled');
     }
   }, [formData.password, wrongEmail]);
 
@@ -61,7 +61,34 @@ const Login: React.FC<LoginProps> = ({ closeModal }) => {
       },
       body: JSON.stringify(formData),
     });
-    // console.log(formData);
+  };
+
+  const succesMessage = (e: any) => {
+    const myPromise = signUp(e);
+
+    toast.promise(
+      myPromise,
+      {
+        loading: 'Enviando datos...',
+        success: 'Bienvenido nuevamente!',
+        error: 'Oops! ocurrió un error',
+      },
+      {
+        style: {
+          minWidth: '200px',
+          padding: '1.1em 1.4em',
+          fontSize: '1.3em',
+        },
+        success: {
+          duration: 3000,
+        },
+      }
+    );
+
+    setTimeout(() => {
+      router.push('/');
+      closeModal();
+    }, 3000);
   };
 
   return (
@@ -157,7 +184,8 @@ const Login: React.FC<LoginProps> = ({ closeModal }) => {
             <button
               ref={send_btn}
               type='submit'
-              className='w-1/2 btn_disable'>
+              onClick={succesMessage}
+              className='w-1/2 btn_disabled'>
               Enviar
             </button>
             <p className='text-slate-200 text-lg'>
@@ -176,6 +204,7 @@ const Login: React.FC<LoginProps> = ({ closeModal }) => {
         className='absolute right-6 top-6 text-slate-400 hover:text-white duration-200 font-extrabold text-xl'>
         X
       </button>
+      <Toaster />
     </motion.div>
   );
 };
