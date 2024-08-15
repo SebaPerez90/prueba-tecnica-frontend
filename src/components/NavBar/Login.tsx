@@ -13,16 +13,16 @@ interface LoginProps {
 }
 
 const Login: React.FC<LoginProps> = ({ closeModal }) => {
+  const router = useRouter();
+
+  const [session, setSession] = useState<boolean>(true);
+  const [hidePassword, setHidePassword] = useState<boolean>(true);
+  const [wrongEmail, setWrongEmail] = useState<boolean>(true);
+  const send_btn = useRef<HTMLButtonElement | null>(null);
   const [formData, setFormData] = useState<Partial<IFormData>>({
     password: '',
     email: '',
   });
-
-  const [hidePassword, setHidePassword] = useState<boolean>(true);
-  const [wrongEmail, setWrongEmail] = useState<boolean>(true);
-  const send_btn = useRef<HTMLButtonElement | null>(null);
-
-  const router = useRouter();
 
   useEffect(() => {
     // Disable the send button function until the fields are completed
@@ -67,7 +67,8 @@ const Login: React.FC<LoginProps> = ({ closeModal }) => {
           body: JSON.stringify(formData),
         }
       );
-      // if (!response.ok) throw new Error('Error al iniciar sesión');
+      if (!response.ok) throw new Error('Error al iniciar sesión');
+      localStorage.setItem('session', 'connected');
       const data = await response.json();
       return data;
     } catch (error) {

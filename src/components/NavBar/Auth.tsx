@@ -3,10 +3,15 @@ import { useRouter } from 'next/navigation';
 import { usePathname } from 'next/navigation';
 import Login from './Login';
 import { AnimatePresence } from 'framer-motion';
+import { FiLogOut } from 'react-icons/fi';
+import { FaUserLarge } from 'react-icons/fa6';
+import { FaShoppingCart } from 'react-icons/fa';
+import { FaBell } from 'react-icons/fa';
 
 const Auth = () => {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [isLogged, setIsLogged] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
@@ -14,7 +19,11 @@ const Auth = () => {
     if (isOpen === false) {
       modal?.classList.replace('flex', 'hidden');
     }
-  }, [isOpen]);
+
+    localStorage.getItem('session') === 'connected'
+      ? setIsLogged(true)
+      : setIsLogged(false);
+  }, [isLogged, isOpen]);
 
   const openModal = () => {
     const main_container = document.getElementById('main-section');
@@ -43,22 +52,50 @@ const Auth = () => {
     setIsOpen(!isOpen);
   };
 
+  const logout = () => {
+    localStorage.setItem('session', 'offline');
+    setIsLogged(false);
+    router.push('/');
+  };
+
   return (
     <>
       <div
         id='auth-btns'
         className='flex items-center gap-4 bg duration-300'>
-        <button
-          onClick={openModal}
-          className='btn_secondary'>
-          Login
-        </button>
-        {pathname !== '/auth' && (
-          <button
-            className='btn_primary'
-            onClick={() => router.push('/auth')}>
-            Register
-          </button>
+        {isLogged ? (
+          <div className='flex items-center gap-3'>
+            <span className='text-4xl text-base-200 cursor-pointer'>
+              <FaBell />
+            </span>
+            <span className='text-3xl text-base-200 border border-base-200 rounded-full p-3'>
+              <FaUserLarge />
+            </span>
+            <span className='btn_primary text-2xl translate-x-1'>
+              <FaShoppingCart />
+            </span>
+            <button
+              onClick={logout}
+              className='flex items-center gap-2 btn_secondary'>
+              Salir
+              <FiLogOut />
+            </button>
+          </div>
+        ) : (
+          <>
+            <button
+              onClick={openModal}
+              className='btn_secondary'>
+              Login
+            </button>
+            {pathname !== '/auth' && (
+              <button
+                className='btn_primary'
+                onClick={() => router.push('/auth')}>
+                Register
+              </button>
+            )}
+          </>
         )}
       </div>
       <AnimatePresence>

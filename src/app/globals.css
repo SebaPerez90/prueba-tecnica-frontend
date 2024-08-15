@@ -4,7 +4,7 @@
 
 @layer components {
   .btn_primary {
-    @apply border px-8 py-4 rounded-xl bg-gradient-to-l to-base-300 from-base-200 text-white active:outline active:outline-1 active:outline-black active:scale-90 duration-200 relative before:absolute before:left-0 before:top-0 before:w-full before:h-full before:bg-base-100 before:opacity-0 before:-z-10 z-20 before:duration-200 overflow-hidden hover:before:opacity-40 hover:-translate-y-1 hover:shadow-xl active:translate-y-1 font-semibold;
+    @apply border px-8 py-4 rounded-xl bg-gradient-to-l to-base-300 from-base-200 text-white active:outline active:outline-1 active:outline-black active:scale-90 duration-200 relative before:absolute before:left-0 before:top-0 before:w-full before:h-full before:bg-base-100 before:opacity-0 before:-z-10 z-20 before:duration-200 overflow-hidden hover:before:opacity-40 hover:-translate-y-1 hover:shadow-xl active:translate-y-1 font-semibold cursor-pointer;
   }
 
   .btn_secondary {
