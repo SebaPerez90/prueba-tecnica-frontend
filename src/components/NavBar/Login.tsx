@@ -19,13 +19,15 @@ const Login: React.FC<LoginProps> = ({ closeModal }) => {
   });
 
   const [hidePassword, setHidePassword] = useState<boolean>(true);
-  const [wrongEmail, setWrongEmail] = useState<boolean>(false);
+  const [wrongEmail, setWrongEmail] = useState<boolean>(true);
   const send_btn = useRef<HTMLButtonElement | null>(null);
 
   const router = useRouter();
 
   useEffect(() => {
     // Disable the send button function until the fields are completed
+    console.log(wrongEmail);
+
     if (wrongEmail === false && formData.password) {
       send_btn.current?.classList.replace('btn_disable', 'btn_primary');
     }
@@ -139,12 +141,6 @@ const Login: React.FC<LoginProps> = ({ closeModal }) => {
               className='absolute text-slate-400/70 left-8 top-5 text-lg duration-300'>
               Correo electrónico
             </label>
-            {wrongEmail ? (
-              <span className='absolute flex items-center gap-1 font-medium text-lg w-max left-0 -bottom-8 text-red-500'>
-                <IoInformationCircle />
-                Ingresa una dirección de email válido
-              </span>
-            ) : null}
           </div>
           <div className='flex items-center flex-col gap-8 mt-6'>
             <label
