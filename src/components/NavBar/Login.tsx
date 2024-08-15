@@ -6,6 +6,7 @@ import { LuEyeOff } from 'react-icons/lu';
 import { IoInformationCircle } from 'react-icons/io5';
 import Image from 'next/image';
 import logo from '@/assets/images/logo.png';
+import { motion } from 'framer-motion';
 
 interface LoginProps {
   closeModal: () => void;
@@ -13,7 +14,6 @@ interface LoginProps {
 
 const Login: React.FC<LoginProps> = ({ closeModal }) => {
   const router = useRouter();
-  const modal = useRef<HTMLDivElement | null>(null);
   const [formData, setFormData] = useState<Partial<IFormData>>({
     password: '',
     email: '',
@@ -55,8 +55,15 @@ const Login: React.FC<LoginProps> = ({ closeModal }) => {
   };
 
   return (
-    <div
-      ref={modal}
+    <motion.div
+      id='modal'
+      transition={{
+        type: 'spring',
+        bounce: 0.5,
+      }}
+      initial={{ x: 200, opacity: 1 }}
+      whileInView={{ x: 0, opacity: 1 }}
+      exit={{ opacity: 0, y: -200 }}
       className='absolute left-[30%] top-[1em] rounded-lg bg-[#181818] px-8'>
       <div className='flex items-center justify-evenly flex-col relative h-[39em]'>
         <div className='flex flex-col items-center gap-3'>
@@ -165,7 +172,7 @@ const Login: React.FC<LoginProps> = ({ closeModal }) => {
         className='absolute right-6 top-6 text-slate-400 hover:text-white duration-200 font-extrabold text-xl'>
         X
       </button>
-    </div>
+    </motion.div>
   );
 };
 

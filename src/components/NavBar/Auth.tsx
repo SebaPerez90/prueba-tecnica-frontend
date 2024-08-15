@@ -1,13 +1,24 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { usePathname } from 'next/navigation';
 import Login from './Login';
+import { AnimatePresence } from 'framer-motion';
 
 const Auth = () => {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState<boolean>(false);
-
   const router = useRouter();
+
+  useEffect(() => {
+    const modal = document.getElementById('modal');
+    if (isOpen === true) {
+      modal?.classList.replace('left-[30%]', 'left-[5%]');
+      modal!.style.opacity = '0.2';
+    } else {
+      modal?.classList.replace('flex', 'hidden');
+    }
+    console.log(isOpen);
+  }, [isOpen]);
 
   const openModal = () => {
     const main_container = document.getElementById('main-section');
@@ -65,7 +76,9 @@ const Auth = () => {
           </button>
         )}
       </div>
-      {isOpen && <Login closeModal={openModal} />}
+      <AnimatePresence>
+        {isOpen && <Login closeModal={openModal} />}
+      </AnimatePresence>
     </>
   );
 };
