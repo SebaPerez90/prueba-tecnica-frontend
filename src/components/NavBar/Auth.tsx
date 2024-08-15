@@ -11,13 +11,9 @@ const Auth = () => {
 
   useEffect(() => {
     const modal = document.getElementById('modal');
-    if (isOpen === true) {
-      modal?.classList.replace('left-[30%]', 'left-[5%]');
-      modal!.style.opacity = '0.2';
-    } else {
+    if (isOpen === false) {
       modal?.classList.replace('flex', 'hidden');
     }
-    console.log(isOpen);
   }, [isOpen]);
 
   const openModal = () => {
@@ -46,17 +42,6 @@ const Auth = () => {
 
     setIsOpen(!isOpen);
   };
-
-  // const closeModal = () => {
-  //   modal.current?.classList.add('[transition:all_400ms]');
-  //   modal.current?.classList.add('[opacity:0!important]');
-  //   modal.current?.classList.replace('sm:w-[40em]', 'w-0');
-  //   modal.current?.classList.replace('w-[100%]', 'w-0');
-  //   setTimeout(() => {
-  //     modal.current?.classList.replace('flex', 'hidden');
-  //     setIsOpen(false);
-  //   }, 400);
-  // };
 
   return (
     <>

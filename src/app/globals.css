@@ -10,6 +10,10 @@
   .btn_secondary {
     @apply border-2 border-base-borders font-semibold px-8 py-3 rounded-xl  text-base-font-200 active:outline active:outline-1 active:outline-black active:scale-90 duration-200 hover:text-base-200/80  z-20 before:duration-200 hover:-translate-y-1 hover:shadow-lg active:translate-y-1 hover:border-base-200/60;
   }
+
+  .btn_disable {
+    @apply pointer-events-none border-zinc-700 bg-zinc-700  text-slate-300  px-8 rounded-xl font-semibold cursor-pointer border py-3 duration-200;
+  }
 }
 
 * {
@@ -90,7 +94,7 @@ body {
 
   .input_field_container_login input:focus ~ label,
   .input_field_container_login input:valid ~ label {
-    transform: translateY(-2.7em) translateX(-35px) scale(0.9);
+    transform: translateY(-2.7em) translateX(-30px) scale(0.9);
     padding: 0.2em 0.5em;
     opacity: 1;
     color: #ffffff;

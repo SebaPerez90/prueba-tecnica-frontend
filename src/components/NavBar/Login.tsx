@@ -1,5 +1,5 @@
 import { IFormData } from '@/interfaces/formdata.interface';
-import { ChangeEvent, FormEvent, useRef, useState } from 'react';
+import { ChangeEvent, FormEvent, useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { LuEye } from 'react-icons/lu';
 import { LuEyeOff } from 'react-icons/lu';
@@ -13,7 +13,6 @@ interface LoginProps {
 }
 
 const Login: React.FC<LoginProps> = ({ closeModal }) => {
-  const router = useRouter();
   const [formData, setFormData] = useState<Partial<IFormData>>({
     password: '',
     email: '',
@@ -22,6 +21,15 @@ const Login: React.FC<LoginProps> = ({ closeModal }) => {
   const [hidePassword, setHidePassword] = useState<boolean>(true);
   const [wrongEmail, setWrongEmail] = useState<boolean>(false);
   const send_btn = useRef<HTMLButtonElement | null>(null);
+
+  const router = useRouter();
+
+  useEffect(() => {
+    // Disable the send button function until the fields are completed
+    if (wrongEmail === false && formData.password) {
+      send_btn.current?.classList.replace('btn_disable', 'btn_primary');
+    }
+  }, [formData.password, wrongEmail]);
 
   const captureValues = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -61,9 +69,9 @@ const Login: React.FC<LoginProps> = ({ closeModal }) => {
         type: 'spring',
         bounce: 0.5,
       }}
-      initial={{ x: 200, opacity: 1 }}
-      whileInView={{ x: 0, opacity: 1 }}
-      exit={{ opacity: 0, y: -200 }}
+      initial={{ scale: 0, opacity: 0 }}
+      whileInView={{ scale: 1, opacity: 1 }}
+      exit={{ opacity: 0, y: 50, scale: 0 }}
       className='absolute left-[30%] top-[1em] rounded-lg bg-[#181818] px-8'>
       <div className='flex items-center justify-evenly flex-col relative h-[39em]'>
         <div className='flex flex-col items-center gap-3'>
@@ -153,7 +161,7 @@ const Login: React.FC<LoginProps> = ({ closeModal }) => {
             <button
               ref={send_btn}
               type='submit'
-              className='pointer-events-none bg-zinc-800 w-1/2 text-slate-300 py-4 px-8 rounded-md font-medium'>
+              className='w-1/2 btn_disable'>
               Enviar
             </button>
             <p className='text-slate-200 text-lg'>
