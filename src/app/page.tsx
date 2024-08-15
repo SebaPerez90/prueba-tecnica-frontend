@@ -9,7 +9,7 @@ const page = () => {
       <Header />
       <main
         id='main-section'
-        className='pt-40 text '>
+        className='pt-40 text duration-500'>
         <Landing />
         <About />
       </main>

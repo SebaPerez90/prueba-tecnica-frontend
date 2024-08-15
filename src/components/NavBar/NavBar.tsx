@@ -25,7 +25,9 @@ const NavBar = () => {
   const pathname = usePathname();
 
   return (
-    <nav className='flex items-center gap-8'>
+    <nav
+      id='nagevacion-links'
+      className='flex items-center gap-8'>
       {links.map((links: INavLinks, index) => (
         <Link
           key={index}

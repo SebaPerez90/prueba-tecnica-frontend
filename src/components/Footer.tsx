@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import logo from '@/assets/images/logo.png';
-import SocialNetworks from '@/app/SocialNetworks';
-// import members from '@/assets/images/members.png';
+import SocialNetworks from '@/components/SocialNetworks';
 
 const Footer = () => {
   return (

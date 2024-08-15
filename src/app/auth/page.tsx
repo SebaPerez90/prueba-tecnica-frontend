@@ -26,14 +26,13 @@ const Auth = () => {
 
   useEffect(() => {
     // Disable the send button function until the fields are completed
-
     if (wrongEmail === false && formData.password.length > 5) {
       send_btn.current?.classList.replace(
         'pointer-events-none',
         'pointer-events-auto'
       );
     }
-  }, [wrongEmail]);
+  }, [formData.password.length, wrongEmail]);
 
   const captureValues = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -63,7 +62,7 @@ const Auth = () => {
       },
       body: JSON.stringify(formData),
     });
-    console.log(formData);
+    // console.log(formData);
   };
 
   const succesMessage = (e: any) => {
