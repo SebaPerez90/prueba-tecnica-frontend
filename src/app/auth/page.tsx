@@ -66,14 +66,25 @@ const Auth = () => {
 
   const signUp = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    await fetch('aca va la url del backend "/signup"', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(formData),
-    });
-    // console.log(formData);
+    await new Promise((resolve) => setTimeout(resolve, 1500));
+
+    try {
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_URL_BACKEND_DEV}/signup`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+        }
+      );
+      if (!response.ok) throw new Error('Error al registrar');
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      throw error;
+    }
   };
 
   const succesMessage = (e: any) => {
@@ -110,7 +121,7 @@ const Auth = () => {
         <form
           name='contact-form'
           method='POST'
-          onSubmit={signUp}
+          onSubmit={succesMessage}
           className='duration-300 flex flex-col justify-around gap-12 w-[33em] border shadow-bottom bg-white rounded-lg py-12 px-24'>
           <div className='input_field_container relative w-full bg-white'>
             <input
@@ -200,8 +211,8 @@ const Auth = () => {
           </div>
           <button
             ref={send_btn}
+            // onClick={}
             type='submit'
-            onClick={succesMessage}
             className='w-[70%] m-[0_auto] text-lg btn_disabled duration-500'>
             Enviar
           </button>
