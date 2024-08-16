@@ -15,7 +15,6 @@ interface LoginProps {
 const Login: React.FC<LoginProps> = ({ closeModal }) => {
   const router = useRouter();
 
-  const [session, setSession] = useState<boolean>(true);
   const [hidePassword, setHidePassword] = useState<boolean>(true);
   const [wrongEmail, setWrongEmail] = useState<boolean>(true);
   const send_btn = useRef<HTMLButtonElement | null>(null);
@@ -58,7 +57,8 @@ const Login: React.FC<LoginProps> = ({ closeModal }) => {
 
     try {
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_URL_BACKEND_DEV}/login`,
+        `${process.env.NEXT_PUBLIC_URL_BACKEND_DEPLOY}/login`, // PRODUCTION URL
+        // `${process.env.NEXT_PUBLIC_URL_BACKEND_DEV}/login`, // DEVELOPMENT URL
         {
           method: 'POST',
           headers: {
