@@ -16,9 +16,11 @@ const Footer = () => {
             priority
             alt='logo'
           />
-          <span className='text-base-200 text-2xl font-bold cursor-pointer'>
+          <a
+            href='#hero-section'
+            className='text-base-200 text-2xl font-bold cursor-pointer'>
             SwiftCart
-          </span>
+          </a>
         </div>
       </div>
       <div className='flex justify-around w-full flex-wrap-reverse'>

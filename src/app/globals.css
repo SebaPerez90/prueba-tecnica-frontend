@@ -39,7 +39,7 @@ body {
   }
 
   .gradient-text {
-    background-image: linear-gradient(to left, #655dbb, #6c63ff);
+    background-image: linear-gradient(to left, #5149a6, #776fff);
     background-clip: text;
     -webkit-background-clip: text;
     -moz-background-clip: text;
