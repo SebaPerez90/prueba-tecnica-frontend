@@ -15,7 +15,6 @@ interface LoginProps {
 const Login: React.FC<LoginProps> = ({ closeModal }) => {
   const router = useRouter();
 
-  const [session, setSession] = useState<boolean>(true);
   const [hidePassword, setHidePassword] = useState<boolean>(true);
   const [wrongEmail, setWrongEmail] = useState<boolean>(true);
   const send_btn = useRef<HTMLButtonElement | null>(null);
