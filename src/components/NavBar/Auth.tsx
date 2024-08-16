@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { usePathname } from 'next/navigation';
 import Login from './Login';
-import { AnimatePresence } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import { FiLogOut } from 'react-icons/fi';
 import { FaUserLarge } from 'react-icons/fa6';
 import { FaShoppingCart } from 'react-icons/fa';
@@ -64,7 +64,10 @@ const Auth = () => {
         id='auth-btns'
         className='flex items-center gap-4 bg duration-300'>
         {isLogged ? (
-          <div className='flex items-center gap-3'>
+          <motion.div
+            initial={{ opacity: 0, scale: 0 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            className='flex items-center gap-3'>
             <span className='text-4xl text-base-200 cursor-pointer'>
               <FaBell />
             </span>
@@ -80,17 +83,17 @@ const Auth = () => {
               Salir
               <FiLogOut />
             </button>
-          </div>
+          </motion.div>
         ) : (
           <>
             <button
               onClick={openModal}
-              className='btn_secondary'>
+              className='btn_secondary animate-[appearElement_300ms_ease_forwards]'>
               Login
             </button>
             {pathname !== '/auth' && (
               <button
-                className='btn_primary'
+                className='btn_primary animate-[appearElement_300ms_ease_forwards]'
                 onClick={() => router.push('/auth')}>
                 Register
               </button>
