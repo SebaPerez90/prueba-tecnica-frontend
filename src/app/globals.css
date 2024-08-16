@@ -38,6 +38,13 @@ body {
     border-radius: 100px;
   }
 
+  /* borrar esto luego */
+  .main-cont > :first-child {
+    padding-top: 10em;
+  }
+  .main-cont > :nth-child(2) {
+    padding-top: 10em;
+  }
   .gradient-text {
     background-image: linear-gradient(to left, #5149a6, #776fff);
     background-clip: text;
