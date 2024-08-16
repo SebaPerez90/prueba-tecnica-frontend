@@ -8,7 +8,7 @@
   }
 
   .btn_secondary {
-    @apply border-2 border-base-borders font-semibold px-8 py-4 rounded-xl  text-base-font-200 active:outline active:outline-1 active:outline-black active:scale-90 duration-200 hover:text-base-200/80  z-20 before:duration-200 hover:-translate-y-1 hover:shadow-lg active:translate-y-1 hover:border-base-200/60;
+    @apply border-2 bg-white border-base-borders font-semibold px-8 py-4 rounded-xl  text-base-font-200 active:outline active:outline-1 active:outline-black active:scale-90 duration-200 hover:text-base-200/80  z-20 before:duration-200 hover:-translate-y-1 hover:shadow-lg active:translate-y-1 hover:border-base-200/60;
   }
 
   .btn_disabled {
