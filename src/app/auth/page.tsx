@@ -70,8 +70,7 @@ const Auth = () => {
 
     try {
       const response = await fetch(
-        'https://prueba-tecnica-backend.onrender.com/signup', //PRODUCTION
-        // `${process.env.NEXT_PUBLIC_URL_BACKEND_DEPLOY}/signup`, //PRODUCTION
+        `${process.env.NEXT_PUBLIC_URL_BACKEND_DEPLOY}/signup`, //PRODUCTION
         // `${process.env.NEXT_PUBLIC_URL_BACKEND_DEV}/signup`, // DEVELOPMENT
         {
           method: 'POST',
