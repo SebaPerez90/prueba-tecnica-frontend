@@ -3,11 +3,12 @@ import Footer from '@/components/Footer';
 import Landing from '@/components/Hero/Landing';
 import Header from '@/components/NavBar/Header';
 import ProductCard from '@/components/Products/ProductCard';
+import ProductList from '@/components/Products/ProductList';
 
 const page = () => {
   return (
     <>
-      <ProductCard />
+      <ProductList />
       {/* <Header />
       <main
         id='main-section'
