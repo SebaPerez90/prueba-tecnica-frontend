@@ -1,6 +1,5 @@
 'use client';
 
-import fake_data from '@/utils/fake-store-data.json';
 import { IProduct } from '@/interfaces/product.interface';
 import { MdAddShoppingCart } from 'react-icons/md';
 import Image from 'next/image';
@@ -27,7 +26,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ key, index, product }) => {
   return (
     <div
       key={key}
-      className='relative flex flex-col items-center justify-between py-4 rounded-lg shadow-neutral gap-4 w-[22em] bg-white'>
+      className='relative flex flex-col items-center justify-between py-4 rounded-lg shadow-neutral gap-4 w-[22em] bg-white before:absolute before:bottom-0 before:left-0 before:w-full before:h-[60%] before:[background:linear-gradient(to_top,#bface24b,#fff,#fff)] before:-z-10 z-10'>
       <svg
         id='heart-svg'
         xmlns='http://www.w3.org/2000/svg'
@@ -84,7 +83,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ key, index, product }) => {
           product.price
         )}
         {product.rating.rate < 3.5 && (
-          <span className='absolute top-2 left-2 text-[0.8em] flex items-center gap-1 border rounded-md px-3 font-medium bg-[#ffffff1f] [backdrop-filter:blur(5px)]'>
+          <span className='absolute top-4 left-4 text-[0.8em] flex items-center gap-1 border rounded-md px-3 font-medium bg-[#ffffff1f] [backdrop-filter:blur(5px)]'>
             Oferta
             <FaFire className='text-red-500' />
           </span>
