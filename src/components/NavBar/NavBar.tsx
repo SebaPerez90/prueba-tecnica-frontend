@@ -42,7 +42,7 @@ const NavBar = () => {
                 }
               : undefined
           }
-          className='text-base-font-300 font-semibold text-lg hover:text-base-200/70 hover:duration-200 duration-200 relative before:absolute before:left-0 before:-bottom-1 before:rounded-full before:w-0 before:h-1 before:bg-base-200/50 hover:before:w-full before:duration-200 flex items-center gap-1'>
+          className='text-base-font-200 font-semibold text-lg hover:text-base-200/70 hover:duration-200 duration-200 relative before:absolute before:left-0 before:-bottom-1 before:rounded-full before:w-0 before:h-1 before:bg-base-200/50 hover:before:w-full before:duration-200 flex items-center gap-1'>
           {links.name}
         </Link>
       ))}
