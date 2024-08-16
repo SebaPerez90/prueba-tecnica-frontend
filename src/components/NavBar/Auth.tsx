@@ -88,12 +88,12 @@ const Auth = () => {
           <>
             <button
               onClick={openModal}
-              className='btn_secondary animate-[appearElement_300ms_ease_forwards]'>
+              className='btn_secondary py-3 animate-[appearElement_300ms_ease_forwards]'>
               Login
             </button>
             {pathname !== '/auth' && (
               <button
-                className='btn_primary animate-[appearElement_300ms_ease_forwards]'
+                className='btn_primary py-3 animate-[appearElement_300ms_ease_forwards]'
                 onClick={() => router.push('/auth')}>
                 Register
               </button>

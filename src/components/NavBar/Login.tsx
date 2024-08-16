@@ -57,8 +57,8 @@ const Login: React.FC<LoginProps> = ({ closeModal }) => {
 
     try {
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_URL_BACKEND_DEPLOY}/login`, // PRODUCTION URL
-        // `${process.env.NEXT_PUBLIC_URL_BACKEND_DEV}/login`, // DEVELOPMENT URL
+        // `${process.env.NEXT_PUBLIC_URL_BACKEND_DEPLOY}/login`, // PRODUCTION URL
+        `${process.env.NEXT_PUBLIC_URL_BACKEND_DEV}/login`, // DEVELOPMENT URL
         {
           method: 'POST',
           headers: {
