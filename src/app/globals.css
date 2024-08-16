@@ -140,3 +140,15 @@ body {
     scale: 1;
   }
 }
+
+@keyframes growEffect {
+  0% {
+    scale: 1.3;
+  }
+  50% {
+    scale: 0.8;
+  }
+  100% {
+    scale: 1;
+  }
+}
