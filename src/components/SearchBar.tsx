@@ -6,8 +6,9 @@ const SearchBar = () => {
   const [filteredValues, setFilteredValues] = useState<any>();
 
   const fetchData = async (value: string) => {
-    //test URL API 
     const response = await fetch('https://api.escuelajs.co/api/v1/users');
+
+    
     const data = await response.json();
 
     const results = data.filter((user: any) => {
