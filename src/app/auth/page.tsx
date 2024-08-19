@@ -70,7 +70,7 @@ const Auth = () => {
 
     try {
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_URL_BACKEND_DEPLOY}/signup`,
+        `${process.env.NEXT_PUBLIC_URL_BACKEND_DEPLOY}/api/v1/signup`,
         {
           method: 'POST',
           headers: {

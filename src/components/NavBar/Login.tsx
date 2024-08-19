@@ -57,7 +57,7 @@ const Login: React.FC<LoginProps> = ({ closeModal }) => {
 
     try {
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_URL_BACKEND_DEPLOY}/login`,
+        `${process.env.NEXT_PUBLIC_URL_BACKEND_DEPLOY}/api/v1/login`,
         {
           method: 'POST',
           headers: {
@@ -97,10 +97,10 @@ const Login: React.FC<LoginProps> = ({ closeModal }) => {
       }
     );
 
-    setTimeout(() => {
-      router.push('/');
-      closeModal();
-    }, 3000);
+    // setTimeout(() => {
+    //   router.push('/');
+    //   closeModal();
+    // }, 3000);
   };
 
   return (
