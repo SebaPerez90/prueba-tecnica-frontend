@@ -69,6 +69,12 @@ const Login: React.FC<LoginProps> = ({ closeModal }) => {
       if (!response.ok) throw new Error('Error al iniciar sesión');
       localStorage.setItem('session', 'connected');
       const data = await response.json();
+
+      setTimeout(() => {
+        router.push('/');
+        closeModal();
+      }, 3000);
+
       return data;
     } catch (error) {
       throw error;
@@ -96,11 +102,6 @@ const Login: React.FC<LoginProps> = ({ closeModal }) => {
         },
       }
     );
-
-    // setTimeout(() => {
-    //   router.push('/');
-    //   closeModal();
-    // }, 3000);
   };
 
   return (
