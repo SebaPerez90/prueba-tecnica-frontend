@@ -3,7 +3,6 @@ import Footer from '@/components/Footer';
 import Landing from '@/components/Hero/Landing';
 import Header from '@/components/NavBar/Header';
 import ProductCarrousel from '@/components/Products/ProductCarrousel';
-// import ProductList from '@/components/Products/ProductList';
 
 const page = () => {
   return (
@@ -15,7 +14,6 @@ const page = () => {
         <Landing />
         <About />
         <ProductCarrousel />
-        {/* <ProductList /> */}
       </main>
       <Footer />
     </>
