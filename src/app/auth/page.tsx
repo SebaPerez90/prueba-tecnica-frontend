@@ -66,11 +66,11 @@ const Auth = () => {
 
   const signUp = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // await new Promise((resolve) => setTimeout(resolve, 1500));
+    await new Promise((resolve) => setTimeout(resolve, 1000));
 
     try {
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_URL_BACKEND_DEPLOY}/signup`, //PRODUCTION
+        `${process.env.NEXT_PUBLIC_URL_BACKEND_DEPLOY}signup`, //PRODUCTION
         // `${process.env.NEXT_PUBLIC_URL_BACKEND_DEV}/signup`, // DEVELOPMENT
         {
           method: 'POST',
